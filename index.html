@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneath Paradise</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700;800&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= COVER ================= -->
+
+    <section class="hero">
+
+        <img src="images/Cover-skySea.png" class="hero-image">
+
+        <div class="overlay">
+
+            <h1>Beneath Paradise</h1>
+
+            <h2>A JOURNEY THROUGH PACIFIC BIODIVERSITY</h2>
+
+            <div class="author">
+
+                <p>A Data Visualization Project by</p>
+
+                <span>
+                    Novena Aurelia Luisma, Gracella Mangalik &amp; Widya Situmorang
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CHAPTER 1 ================= -->
+
+    <section id="chapter1">
+
+        <div class="chapter-title">
+
+            <h2>🌊 Ocean is Changing</h2>
+
+            <p>
+                Even a small rise in sea surface temperature can disrupt coral reefs, threaten marine biodiversity, and reshape ocean ecosystems across the Pacific. This visualization presents long-term Sea Surface Temperature (SST) trends for Pacific Island countries from 1990 to 2025.
+            </p>
+
+        </div>
+
+        <div class="controls">
+
+    <label for="countrySelect">Choose Country</label>
+    <select id="countrySelect"></select>
+
+</div>
+
+<div class="content">
+
+    <div class="chart-box">
+
+        <svg id="chart" width="900" height="650"></svg>
+
+    </div>
+
+    <div id="chartDescription">
+
+        <h3>About this Indicator</h3>
+
+        <p>
+            Sea Surface Temperature (SST) measures the average temperature of the ocean surface. Changes in SST can influence coral reefs, marine biodiversity, and ecosystem health.
+        </p>
+
+        <h3>Quick Insight</h3>
+
+        <p id="insightText"></p>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ====================================================== -->
+
+<!-- =================== CHAPTER 2 ========================= -->
+
+<!-- 🌊 Rising Seas                                         -->
+
+<!-- ====================================================== -->
+
+<section id="chapter2">
+
+<div class="chapter2-title">
+    <h2>🌊 Rising Seas</h2>
+
+    <p>
+        Even small increases in sea level can accelerate coastal flooding,
+        shoreline erosion, and threaten low-lying Pacific islands.
+        Explore how sea level anomalies have changed over time.
+    </p>
+</div>
+
+<!-- Country -->
+<div class="controls">
+
+    <label for="countrySelect2">
+        Choose Country
+    </label>
+
+    <select id="countrySelect2"></select>
+
+</div>
+
+<!-- Thermometer -->
+<div class="sea-box">
+
+    <div class="thermo-area">
+
+        <svg id="seaGauge"></svg>
+
+        <div id="seaValue">+0.00 m</div>
+
+        <p>Sea Level Anomaly</p>
+
+    </div>
+
+    <div class="chart-area">
+
+        <svg id="miniBarChart"></svg>
+
+    </div>
+
+</div>
+
+<!-- Description -->
+<div id="seaDescription">
+
+    <h3>About this Indicator</h3>
+
+    <p>
+        Sea Level Anomalies measure changes in sea level relative
+        to the long-term average. Rising sea levels increase
+        coastal flooding, erosion, and saltwater intrusion,
+        especially for low-lying Pacific islands.
+    </p>
+
+    <h3>Quick Insight</h3>
+
+    <p id="seaInsight"></p>
+
+</div>
+
+</section>
+
+
+    <!-- D3 -->
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
+
+    <!-- ====================================================== -->
+<!-- =================== CHAPTER 3 ========================= -->
+<!-- 🌿 Red List Index                                      -->
+<!-- ====================================================== -->
+
+<section id="chapter3">
+
+    <div class="chapter2-title">
+
+        <h2>🌿 Red List Index</h2>
+
+        <p>
+            The Red List Index reflects changes in overall biodiversity.
+            Higher values indicate healthier ecosystems, while declining values
+            suggest increasing extinction risk for species.
+        </p>
+
+    </div>
+
+    <!-- Country -->
+    <div class="controls">
+
+        <label for="countrySelect3">
+            Choose Country
+        </label>
+
+        <select id="countrySelect3"></select>
+
+    </div>
+
+    <!-- Visualization -->
+    <div class="sea-box">
+
+        <div class="thermo-area">
+
+            <div id="redValue">
+                0.00
+            </div>
+
+            <p>Red List Index</p>
+
+        </div>
+
+        <div class="sea-info">
+
+            <svg id="redBarChart"
+                 width="1200"
+                 height="700">
+            </svg>
+
+        </div>
+
+    </div>
+
+    <!-- Description -->
+
+    <div id="seaDescription">
+
+        <h3>About this Indicator</h3>
+
+        <p>
+
+            The Red List Index measures trends in species extinction risk.
+            Values closer to 1 indicate healthier biodiversity, while lower
+            values reflect increasing threats to ecosystems.
+
+        </p>
+
+        <h3>Quick Insight</h3>
+
+        <p id="redInsight"></p>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- =================== CHAPTER 4 ========================= -->
+<!-- ====================================================== -->
+
+<section id="chapter4">
+
+    <div class="chapter4-title">
+
+        <h2>🌏 Final Reflection</h2>
+
+        <p>
+            Climate change affects the Pacific through rising sea levels and declining biodiversity.
+            Protecting marine ecosystems and reducing global emissions are essential to safeguard
+            the future of Pacific Island communities.
+        </p>
+
+    </div>
+
+    <div class="summary-box">
+
+        <div class="summary-card">
+
+            <h3>🌊 Rising Seas</h3>
+
+            <p>
+                Sea level anomalies have generally increased across many Pacific Island countries,
+                raising the risk of coastal flooding, erosion, and saltwater intrusion.
+            </p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>🐠 Biodiversity</h3>
+
+            <p>
+                The Red List Index shows gradual declines in biodiversity, highlighting growing
+                extinction risks and the need for stronger conservation efforts.
+            </p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>🌱 Call to Action</h3>
+
+            <p>
+                Sustainable policies, ecosystem restoration, and global cooperation are crucial to
+                protect the Pacific for future generations.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="quote-box">
+
+        "The Pacific is more than an ocean. Protecting it means protecting life itself."
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

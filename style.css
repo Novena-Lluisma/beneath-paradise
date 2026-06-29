@@ -1,0 +1,1081 @@
+/* ======================================
+   RESET
+====================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#ffffff;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+/* ======================================
+   HERO
+====================================== */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+.hero-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+/* ======================================
+   TITLE
+====================================== */
+
+.overlay h1{
+
+    position:absolute;
+
+    top:120px;
+
+    left:50%;
+
+    transform:translate(-50%,0);
+
+    width:100%;
+
+    margin:0;
+
+    text-align:center;
+
+    font-family:'EB Garamond', serif;
+
+    font-size:260px;
+
+    font-style:italic;
+
+    font-weight:700;
+
+    color:#FAFFF7;
+
+    text-shadow:0 5px 15px rgba(0,0,0,.3);
+
+}
+
+.overlay h2{
+
+    position:absolute;
+
+    top:450px;      /* sebelumnya 310px */
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:Georgia, serif;
+
+    font-size:90px;
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+    color:#55544A;
+
+}
+
+.author{
+
+    position:absolute;
+
+    bottom:100px;   
+
+    width:100%;
+
+    text-align:center;
+
+    color:#55544A;
+
+    font-family:'IM Fell English', serif;
+
+}
+
+.author p{
+
+    font-size:80px;     
+
+    font-style:italic;
+
+    margin-bottom:10px;
+
+}
+
+.author span{
+
+    font-size:58px;     
+
+    line-height:1.6;
+
+}
+
+/* ======================================
+   CHAPTER 1
+====================================== */
+
+#chapter1{
+
+    width:100%;
+
+    min-height:100vh;
+
+    background-image:url("images/Chapterr1.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding-top:180px;
+
+}
+
+.chapter-title{
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:170px;
+    margin-bottom:100px;
+
+    text-align:center;
+
+}
+
+.chapter-title h2{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+
+    width:100%;
+
+    font-family:'EB Garamond', serif;
+    font-size:200px;      
+    font-weight:800;
+
+    color:#ffffff;
+
+    text-shadow:
+        0 8px 20px rgba(0,0,0,.55);
+
+    margin:0 0 30px 0;
+
+}
+
+
+.chapter-title p{
+
+    width:3500px;      /* sebelumnya mungkin 800-1000px */
+
+    max-width:90%;
+
+    margin:25px auto 60px;
+
+    font-family:'EB Garamond', serif;
+
+    font-size:90px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+    color:white;
+
+    text-align:center;
+
+    text-shadow:
+    0 2px 5px rgba(0,0,0,.3),
+    0 6px 18px rgba(0,0,0,.55);
+
+}
+
+.controls{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin-top:-20px;
+
+    margin-bottom:40px;
+
+}
+
+.content{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:70px;
+    position:relative;
+}
+
+.chart-box{
+
+    width:1100px;
+    flex:none;
+
+    position:relative;
+    left:-900px;     /* geser grafik */
+
+}
+
+.controls label{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:80px;
+
+    font-weight:700;
+
+    color:white;
+
+    text-shadow:0 3px 10px rgba(0,0,0,.45);
+
+    margin-bottom:18px;
+
+}
+
+#countrySelect{
+
+    width:900px;
+
+    height:120px;
+
+    padding:0 18px;
+
+    font-size:50px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+    border:3px solid #0F5EA8;
+
+    background:white;
+
+    color:#222;
+
+    cursor:pointer;
+
+}
+
+#chart{
+
+    width:3000px;
+    height:1500px;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:20px;
+
+}
+
+/* ======================================
+   TOOLTIP
+====================================== */
+
+.tooltip{
+
+    position:absolute;
+    opacity:0;
+
+    background:white;
+    color:#222;
+
+    padding:18px 22px;
+
+    border-radius:12px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+    pointer-events:none;
+
+    font-size:24px;
+
+}
+
+/* ======================================
+   INSIGHT BOX
+====================================== */
+
+#chartDescription{
+
+    width:2000px;
+    height:1500px;
+
+    flex:none;
+
+    display:block;
+
+    position:relative;
+    left:1000px;
+
+    padding:40px;
+
+    background:rgba(18,39,61,.78);
+
+    border-radius:22px;
+
+    color:white;
+
+    box-sizing:border-box;
+
+}
+
+#chartDescription h3{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:80px;
+
+    margin-bottom:30px;
+
+    color:white;
+
+    text-shadow:0 3px 8px rgba(0,0,0,.4);
+
+}
+
+#chartDescription p{
+
+    font-size:60px;
+
+    line-height:2;
+    margin-bottom:70px;
+
+    text-align:justify;
+
+    color:white;
+
+}
+
+#insightText{
+
+    font-size:60px;
+
+    line-height:2.5;
+
+    text-align:justify;
+
+    color:white;
+
+    margin-top:30px;
+
+}
+
+/* ===================================================== */
+/* ================== CHAPTER 2 ========================= */
+/* ===================================================== */
+
+#chapter2{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:180px 120px;
+
+    background-image:url("images/Chapterr2.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+/* ---------- TITLE ---------- */
+
+.chapter2-title{
+
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    margin-bottom:70px;
+
+}
+
+.chapter2-title h2{
+
+    font-family:'EB Garamond', serif;
+    font-size:180px;
+    font-weight:800;
+    color:white;
+    text-align:center;
+
+    text-shadow:0 8px 20px rgba(0,0,0,.55);
+
+    margin-bottom:35px;
+
+}
+
+.chapter2-title p{
+
+    width:2600px;
+    max-width:90%;
+
+    font-family:'EB Garamond', serif;
+    font-size:70px;
+    font-weight:600;
+    line-height:1.6;
+
+    color:white;
+    text-align:center;
+
+    text-shadow:
+    0 3px 8px rgba(0,0,0,.35),
+    0 8px 20px rgba(0,0,0,.55);
+
+}
+
+/* ---------- DROPDOWN ---------- */
+
+#chapter2 .controls{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    margin-bottom:70px;
+
+}
+
+#chapter2 .controls label{
+
+    font-family:'EB Garamond', serif;
+    font-size:75px;
+    font-weight:700;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+#countrySelect2{
+
+    width:900px;
+    height:120px;
+
+    font-size:58px;
+    font-family:'EB Garamond', serif;
+
+    padding:0 20px;
+
+    border-radius:18px;
+    border:3px solid white;
+
+    background:white;
+    color:#163a63;
+
+    cursor:pointer;
+
+}
+
+/* ---------- BOX ---------- */
+
+.sea-box{
+
+    width:2400px;
+
+    height:1400px;
+
+    display:flex;
+
+    justify-content:space-evenly;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:30px;
+
+    padding:80px;
+
+}
+
+/* ---------- THERMOMETER ---------- */
+
+#seaGauge{
+    width:700px;
+    height:900px;
+    display:block;
+}
+
+/* ---------- VALUE ---------- */
+
+.sea-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:30px;
+
+}
+
+#seaValue{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:160px;
+
+    font-weight:800;
+
+    color:white;
+
+    margin-top:20px;
+
+    margin-bottom:0;
+
+    text-shadow:0 6px 16px rgba(0,0,0,.45);
+
+}
+
+.thermo-area p{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:70px;
+
+    font-weight:700;
+
+    color:white;
+
+    text-align:center;
+
+    margin-top:10px;
+
+    text-shadow:0 5px 12px rgba(0,0,0,.45);
+
+}
+
+/* ---------- DESCRIPTION ---------- */
+
+#seaDescription{
+
+    width:2400px;
+
+    background:rgba(18,39,61,.78);
+
+    border-radius:25px;
+
+    padding:60px;
+
+    color:white;
+
+}
+
+#seaDescription h3{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:85px;
+
+    margin-bottom:30px;
+
+}
+
+#seaDescription p{
+
+    font-size:58px;
+
+    line-height:1.9;
+
+    text-align:justify;
+
+    margin-bottom:60px;
+
+}
+
+#seaInsight{
+
+    font-size:60px;
+
+    line-height:1.9;
+
+}
+
+.thermo-area{
+
+    width:700px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+#miniBarChart{
+
+    width:1500px;
+
+    height:1000px;
+
+}
+
+/* ===================================================== */
+/* ================== CHAPTER 3 ========================= */
+/* ===================================================== */
+
+#chapter3{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:180px 120px 120px;
+
+    background-image:url("images/Chapter4.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+/* ---------- TITLE ---------- */
+
+#chapter3 .chapter2-title{
+
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    margin-bottom:70px;
+
+}
+
+#chapter3 .chapter2-title h2{
+
+    font-family:'EB Garamond', serif;
+    font-size:180px;
+    font-weight:800;
+
+    color:white;
+
+    text-align:center;
+
+    text-shadow:0 8px 20px rgba(0,0,0,.55);
+
+    margin-bottom:35px;
+
+}
+
+#chapter3 .chapter2-title p{
+
+    width:2600px;
+    max-width:90%;
+
+    font-family:'EB Garamond', serif;
+
+    font-size:70px;
+
+    font-weight:600;
+
+    line-height:1.6;
+
+    color:white;
+
+    text-align:center;
+
+    text-shadow:
+        0 3px 8px rgba(0,0,0,.35),
+        0 8px 20px rgba(0,0,0,.55);
+
+}
+
+/* ---------- DROPDOWN ---------- */
+
+#chapter3 .controls{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    margin-bottom:70px;
+
+}
+
+#chapter3 .controls label{
+
+    font-family:'EB Garamond', serif;
+    font-size:75px;
+    font-weight:700;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+#countrySelect3{
+
+    width:900px;
+    height:120px;
+
+    font-size:48px;
+
+    border:none;
+    border-radius:18px;
+
+    padding:0 25px;
+
+}
+
+/* ---------- BOX ---------- */
+
+#chapter3 .sea-box{
+
+    width:2400px;
+    height:1400px;
+
+    display:flex;
+
+    justify-content:space-evenly;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:30px;
+
+    padding:80px;
+
+}
+
+/* ---------- VALUE ---------- */
+
+#redValue{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:220px;
+
+    font-weight:800;
+
+    color:white;
+
+    text-align:center;
+
+    text-shadow:0 8px 20px rgba(0,0,0,.4);
+
+}
+
+#chapter3 .thermo-area{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+#chapter3 .thermo-area p{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:80px;
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+/* ---------- BAR ---------- */
+
+#redBarChart{
+
+    width:1200px;
+
+    height:700px;
+
+}
+
+/* ---------- DESCRIPTION ---------- */
+
+#chapter3 #seaDescription{
+
+    width:2400px;
+
+    background:rgba(18,39,61,.78);
+
+    border-radius:25px;
+
+    padding:60px;
+
+    color:white;
+
+}
+
+#chapter3 #seaDescription h3{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:85px;
+
+    margin-bottom:30px;
+
+}
+
+#chapter3 #seaDescription p{
+
+    font-size:58px;
+
+    line-height:2;
+
+    text-align:justify;
+
+    margin-bottom:60px;
+
+}
+
+#redInsight{
+
+    font-size:60px;
+
+    line-height:2;
+
+}
+
+/* ====================================================== */
+/* ================= CHAPTER 4 ========================== */
+/* ====================================================== */
+
+#chapter4{
+
+    width:100%;
+    min-height:100vh;
+
+    padding:180px 120px;
+
+    background-image:url("images/Chapter5.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+/* ---------- TITLE ---------- */
+
+.chapter4-title{
+
+    text-align:center;
+
+    margin-bottom:120px;
+
+}
+
+.chapter4-title h2{
+
+    font-family:'EB Garamond', serif;
+    font-size:180px;
+
+    color:white;
+
+    margin-bottom:45px;
+
+    text-shadow:0 8px 20px rgba(0,0,0,.55);
+
+}
+
+.chapter4-title p{
+
+    width:2600px;
+    max-width:92%;
+
+    font-family:'EB Garamond', serif;
+
+    font-size:78px;
+
+    line-height:1.8;
+
+    color:white;
+
+    text-shadow:0 6px 18px rgba(0,0,0,.45);
+
+}
+
+/* ---------- SUMMARY ---------- */
+
+.summary-box{
+
+    width:3000px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:70px;
+
+    margin-bottom:110px;
+
+}
+
+.summary-card{
+
+    flex:1;
+
+    background:rgba(18,39,61,.80);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:30px;
+
+    padding:70px;
+
+}
+
+.summary-card h3{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:90px;
+
+    color:white;
+
+    margin-bottom:40px;
+
+}
+
+.summary-card p{
+
+    font-family:'EB Garamond', serif;
+
+    font-size:62px;
+
+    line-height:1.8;
+
+    color:white;
+
+}
+
+/* ---------- QUOTE ---------- */
+
+.quote-box{
+
+    width:2600px;
+
+    padding:90px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+
+    font-family:'EB Garamond', serif;
+
+    font-size:82px;
+
+    color:white;
+
+    font-style:italic;
+
+    line-height:1.6;
+
+    text-shadow:0 5px 15px rgba(0,0,0,.35);
+
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer-credit{
+
+    margin-top:80px;
+
+    font-family:'EB Garamond', serif;
+
+    font-size:48px;
+
+    color:white;
+
+    opacity:.9;
+
+}
